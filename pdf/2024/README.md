@@ -8,3 +8,16 @@ Fonte: [Eleições do IFRN: divulgada a lista de estudantes e servidores votante
 - `sudo apt update`
 - `sudo apt install -y poppler-utils`
 - `pdftotext -layout ifrn-eleitores-2024.pdf`
+
+## Script de auxílio
+
+```python
+with open('ifrn-eleitores-2024-nao-formatado.csv', encoding='utf-8') as leitor, \
+     open('ifrn-eleitores-2024.csv', mode='w', encoding='utf-8') as escritor:
+
+    for i,linha in enumerate(leitor):
+        matricula,calda = linha.split(maxsplit=1)
+        nome,campus,classe = calda.rsplit(maxsplit=2)
+        nova_linha = f'{i},{matricula},{nome.title()},{campus},{classe}'
+        escritor.write(f"{nova_linha}\n")
+```
