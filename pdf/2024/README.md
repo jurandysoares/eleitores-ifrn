@@ -11,6 +11,8 @@ Fonte: [Eleições do IFRN: divulgada a lista de estudantes e servidores votante
 
 ## Script de auxílio
 
+O seguinte script escrito em Python foi utilizado para gerar o arquivo CSV:
+
 ```python
 with open('ifrn-eleitores-2024-nao-formatado.csv', encoding='utf-8') as leitor, \
      open('ifrn-eleitores-2024.csv', mode='w', encoding='utf-8') as escritor:
